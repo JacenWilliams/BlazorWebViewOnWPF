@@ -9,7 +9,7 @@
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (forecasts == null)
+@*@if (forecasts == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -36,13 +36,30 @@ else
             }
         </tbody>
     </table>
-}
+}*@
+
+<MudTable Items="@forecasts" Hover="true" Breakpoint="Breakpoint.Sm" Loading="@_loading" LoadingProgressColor="Color.Info">
+    <HeaderContent>
+        <MudTh>Date</MudTh>
+        <MudTh>Temp. (C)</MudTh>
+        <MudTh>Temp. (F)</MudTh>
+        <MudTh>Summary</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Date">@context.Date.ToShortDateString()</MudTd>
+        <MudTd DataLabel="Temp. (C)">@context.TemperatureC</MudTd>
+        <MudTd DataLabel="Temp. (F)">@context.TemperatureF</MudTd>
+        <MudTd DataLabel="Summary">@context.Summary</MudTd>
+    </RowTemplate>
+</MudTable>
 
 @code {
+    private bool _loading = true;
     private IEnumerable<WeatherForecast>? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
         forecasts = await service.GetWeatherForecastsAsync();
+        _loading = false;
     }
 }

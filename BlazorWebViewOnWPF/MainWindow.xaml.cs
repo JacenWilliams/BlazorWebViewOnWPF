@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MudBlazor.Services;
 
 namespace BlazorWebViewOnWPF
 {
@@ -28,6 +29,8 @@ namespace BlazorWebViewOnWPF
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddBlazorWebView();
             serviceCollection.AddScoped<WeatherDataService>();
+            serviceCollection.AddSingleton<ProspaceService>();
+            serviceCollection.AddMudServices();
             Resources.Add("services", serviceCollection.BuildServiceProvider());
 
             InitializeComponent();

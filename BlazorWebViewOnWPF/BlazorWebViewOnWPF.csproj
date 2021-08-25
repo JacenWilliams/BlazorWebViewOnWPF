@@ -8,12 +8,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\App.css" />
     <Content Remove="wwwroot\favicon.ico" />
     <Content Remove="wwwroot\icon-192.png" />
     <Content Remove="wwwroot\index.html" />
     <Content Remove="wwwroot\sample-data\weather.json" />
   </ItemGroup>
+
+	<ItemGroup>
+		<COMReference Include="ProSpace.dll">
+			<WrapperTool>tlbimp</WrapperTool>
+			<VersionMinor>0</VersionMinor>
+			<VersionMajor>1</VersionMajor>
+			<Guid>f7551e13-1020-11d2-9193-204c4f4f5020</Guid>
+			<Lcid>0</Lcid>
+			<Isolated>false</Isolated>
+		</COMReference>
+	</ItemGroup>
 
   <ItemGroup>
     <None Include="Pages\Counter.razor" />
@@ -22,9 +32,6 @@
     <None Include="Shared\MainLayout.razor" />
     <None Include="Shared\NavMenu.razor" />
     <None Include="Shared\SurveyPrompt.razor" />
-    <None Include="wwwroot\App.css">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="wwwroot\css\bootstrap\bootstrap.min.css.map" />
     <None Include="wwwroot\css\open-iconic\FONT-LICENSE" />
     <None Include="wwwroot\css\open-iconic\font\fonts\open-iconic.svg" />
@@ -46,7 +53,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="6.0.100-preview.7.1345" />
+    <PackageReference Include="MudBlazor" Version="5.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Telerik.UI.for.Blazor" Version="2.26.0" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,24 @@
+﻿@page "/JDA"
+
+@using BlazorWebViewOnWPF.Services
+
+@inject ProspaceService jda
+
+<h3>Current Active Planogram</h3>
+
+<p role="status">Current active planogram: @activePlanogram</p>
+
+<MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="LoadPlano">Refresh</MudButton>
+
+@code {
+	 private string activePlanogram = "";
+
+	 private void LoadPlano(){
+		 activePlanogram = jda.GetCurrentPlanogram();
+	 }
+
+	 protected override async Task OnInitializedAsync()
+    {
+       LoadPlano();
+    }
+}

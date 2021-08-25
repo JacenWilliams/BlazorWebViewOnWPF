@@ -7,8 +7,11 @@
         xmlns:localBlazor="clr-namespace:BlazorWebViewOnWPF.Blazor"
         xmlns:blazor="clr-namespace:Microsoft.AspNetCore.Components.WebView.Wpf;assembly=Microsoft.AspNetCore.Components.WebView.Wpf"
         mc:Ignorable="d"
-        Title="This is WPF" Height="450" Width="800">
-    <Grid>
+        Title="This is WPF"
+        Margin="0"
+        Padding="0"
+        Background="Transparent">
+    <Grid Margin="0">
         <blazor:BlazorWebView HostPage="wwwroot/index.html" Services="{StaticResource services}">
             <blazor:BlazorWebView.RootComponents>
                 <blazor:RootComponent Selector="#app" ComponentType="{x:Type localBlazor:App}" />
